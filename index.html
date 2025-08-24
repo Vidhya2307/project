@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -165,3 +166,172 @@ function btncalculate_onclick() {
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Salary Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #83a4d4, #b6fbff);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background: white;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        width: 400px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    td:first-child {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    input[readonly] {
+        background-color: #f3f3f3;
+    }
+
+    .btns {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .btns input[type="button"] {
+        padding: 8px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn-cancel {
+        background-color: #ff4d4d;
+        color: white;
+    }
+
+    .btn-cancel:hover {
+        background-color: #e60000;
+    }
+
+    .btn-calc {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .btn-calc:hover {
+        background-color: #3e8e41;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Employee Salary Details</h2>
+    <table>
+        <tr>
+            <td>Employee Name</td>
+            <td><input type="text" id="ename" /></td>
+        </tr>
+        <tr>
+            <td>Employee ID</td>
+            <td><input type="number" id="eid" /></td>
+        </tr>
+        <tr>
+            <td>Employee Salary</td>
+            <td><input type="number" id="esal" /></td>
+        </tr>
+        <tr>
+            <td>House Rental</td>
+            <td><input type="number" id="ehra" readonly /></td>
+        </tr>
+        <tr>
+            <td>Dearness Allowance</td>
+            <td><input type="number" id="edear" readonly /></td>
+        </tr>
+        <tr>
+            <td>Provident Fund</td>
+            <td><input type="number" id="epf" readonly /></td>
+        </tr>
+        <tr>
+            <td>Gross Pay</td>
+            <td><input type="number" id="egp" readonly /></td>
+        </tr>
+        <tr>
+            <td>Net Pay</td>
+            <td><input type="number" id="enet" readonly /></td>
+        </tr>
+    </table>
+
+    <div class="btns">
+        <input type="button" value="Cancel" class="btn-cancel" onclick="btncancel_onclick()" />
+        <input type="button" value="Calculate" class="btn-calc" onclick="btncalculate_onclick()" />
+    </div>
+</div>
+
+<script>
+function btncancel_onclick() {
+    document.querySelectorAll('input').forEach(inp => inp.value = "");
+}
+
+function btncalculate_onclick() {
+    let sal = parseFloat(document.getElementById("esal").value);
+
+    if (isNaN(sal)) {
+        alert("Please enter a valid salary");
+        return;
+    }
+
+    let hra = sal * 20 / 100;
+    let da = sal * 15 / 100;
+    let pf = sal * 35 / 100;
+    let gp = sal + hra + da;
+    let np = gp - pf;
+
+    document.getElementById("ehra").value = hra.toFixed(2);
+    document.getElementById("edear").value = da.toFixed(2);
+    document.getElementById("epf").value = pf.toFixed(2);
+    document.getElementById("egp").value = gp.toFixed(2);
+    document.getElementById("enet").value = np.toFixed(2);
+}
+</script>
+
+</body>
+</html>
+>>>>>>> 11c15a75a0a25d04c112b3515c083420322520bd
